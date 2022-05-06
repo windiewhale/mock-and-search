@@ -9,11 +9,11 @@ function Books({title, author, year}) {
   return (
     <div>
         <h2>{title}</h2>
-        {details ? 
+        {details && 
         <>
             <h3>{author}</h3>
             <h3>{year}</h3>
-        </> : null
+        </> 
         }
         <button onClick={()=>{setDetails(!details)}}>{details ? "hide" : "show"}</button>
     </div>

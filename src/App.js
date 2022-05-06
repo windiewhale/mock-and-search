@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import Books from "./Books";
+import LoadingMask from "./LoadingMask";
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -21,9 +22,10 @@ function App() {
   
   return (
     <div className="App">
-      {loading ? "under construction" : 
-        books.map(book => <div><h2>{book.title}</h2>{book.author}{book.year}
-          </div>)
+      {loading ? <LoadingMask /> : 
+        books.map(book => <Books 
+          book={book} />
+        )
       }
       
     </div>

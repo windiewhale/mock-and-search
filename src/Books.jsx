@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 
-function Books({book}) {
+function Books({title, author, year}) {
+
+    const [details, setDetails] = useState(false)
+
   return (
     <div>
-        <h2>{book.title}</h2>
-        <h3>{book.author}</h3>
-        <h3>{book.year}</h3>
-        <button>Show more</button>
+        <h2>{title}</h2>
+        {details ? 
+        <>
+            <h3>{author}</h3>
+            <h3>{year}</h3>
+        </> : null
+        }
+        <button onClick={()=>{setDetails(!details)}}>{details ? "hide" : "show"}</button>
     </div>
   )
 }

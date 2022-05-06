@@ -23,8 +23,11 @@ function App() {
   return (
     <div className="App">
       {loading ? <LoadingMask /> : 
-        books.map(book => <Books 
-          book={book} />
+        books.map(({title, author, year}) => <Books key={year} 
+          title={title}
+          author={author}
+          year={year}
+          />
         )
       }
       

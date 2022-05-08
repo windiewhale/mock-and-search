@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Books from "./Books";
 import LoadingMask from "./LoadingMask";
+import { Button } from "@mui/material";
+import { TextField } from "@mui/material"
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -31,8 +33,11 @@ function App() {
     <div className="App">
       {loading ? <LoadingMask /> : 
         <>
-        <button onClick={sortBooks}>sort</button>
-        <input placeholder="search..." value={input} onChange={({target})=>setInput(target.value)}/>
+        <Button 
+          variant="contained"
+          onClick={sortBooks}
+        >sort</Button>
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" value={input} onChange={({target})=>setInput(target.value)}/>
         {books.map(({title, author, year}) =>(title.toLowerCase().includes(input.toLowerCase())) && <Books key={year} 
           title={title}
           author={author}

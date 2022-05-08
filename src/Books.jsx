@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React, { useState } from 'react'
 
 
@@ -15,7 +16,8 @@ function Books({title, author, year}) {
             <h3>{year}</h3>
         </> 
         }
-        <button onClick={()=>{setDetails(!details)}}>{details ? "hide" : "show"}</button>
+        <Button variant="outlined" onClick={()=>{setDetails(!details)}}>{details ? "hide" : "show"}</Button>
+    
     </div>
   )
 }
